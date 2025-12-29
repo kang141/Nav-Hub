@@ -26,10 +26,10 @@ import {
     ContextMenuSeparator,
     ContextMenuTrigger,
 } from "@/components/ui/context-menu";
-import { DraggableNavCard } from "./draggable-nav-card";
-import { AddItemDialog } from "./add-item-dialog";
-import { ViewAllDialog } from "./view-all-dialog";
-import { ConfirmDialog } from "./confirm-dialog";
+import { DraggableNavCard } from "../card/draggable-nav-card";
+import { AddItemDialog } from "../card/add-item-dialog";
+import { ViewAllDialog } from "../shared/view-all-dialog";
+import { ConfirmDialog } from "../shared/confirm-dialog";
 import { useNavigationStore, type NavigationState } from "@/stores/navigation-store";
 
 import type { NavCategory, NavItem } from "@/types/navigation";
@@ -109,7 +109,6 @@ export function CategorySection({ category, dragHandleProps, isDragging }: Categ
 
     return (
         <section className="space-y-3">
-            {/* 分类标题 - 可拖拽区域 + 右键菜单 */}
             <ContextMenu>
                 <ContextMenuTrigger asChild>
                     <div
@@ -142,7 +141,6 @@ export function CategorySection({ category, dragHandleProps, isDragging }: Categ
                 </ContextMenuContent>
             </ContextMenu>
 
-            {/* 链接列表 */}
             <div className="space-y-2">
                 <DndContext
                     id={dndContextId}
@@ -165,7 +163,6 @@ export function CategorySection({ category, dragHandleProps, isDragging }: Categ
                     </SortableContext>
                 </DndContext>
 
-                {/* 查看更多按钮 */}
                 {hasMore && (
                     <button
                         onClick={() => setViewAllOpen(true)}
@@ -176,7 +173,6 @@ export function CategorySection({ category, dragHandleProps, isDragging }: Categ
                     </button>
                 )}
 
-                {/* 添加链接按钮 */}
                 <button
                     onClick={() => setAddItemOpen(true)}
                     className="flex w-full items-center justify-center gap-2 rounded-xl border-2 border-dashed border-muted-foreground/20 p-3 text-sm text-muted-foreground/50 transition-colors hover:border-primary/30 hover:text-primary"

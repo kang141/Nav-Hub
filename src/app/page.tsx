@@ -18,8 +18,7 @@ import {
 } from "@dnd-kit/sortable";
 import { Plus } from "lucide-react";
 
-import { Header, SearchBar, AddCategoryDialog } from "@/features/navigation";
-import { DraggableCategory } from "@/features/navigation/components/draggable-category";
+import { Header, SearchBar, AddCategoryDialog, DraggableCategory } from "@/features/navigation";
 import { useNavigationStore, type NavigationState } from "@/stores/navigation-store";
 
 import type { NavCategory } from "@/types/navigation";

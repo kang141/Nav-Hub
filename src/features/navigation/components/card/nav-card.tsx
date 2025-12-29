@@ -13,7 +13,7 @@ import {
     ContextMenuTrigger,
 } from "@/components/ui/context-menu";
 import { EditItemDialog } from "./edit-item-dialog";
-import { ConfirmDialog } from "./confirm-dialog";
+import { ConfirmDialog } from "../shared/confirm-dialog";
 import { getFaviconUrl, getColorFromString } from "@/lib/favicon-cache";
 
 import type { NavItem } from "@/types/navigation";

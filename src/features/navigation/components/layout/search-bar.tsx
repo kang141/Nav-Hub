@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 
-import { Search, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
 import {
@@ -37,7 +37,6 @@ export function SearchBar() {
     const [engine, setEngine] = useState<SearchEngine>("google");
     const inputRef = useRef<HTMLInputElement>(null);
 
-    // 从 localStorage 读取上次选择的搜索引擎
     useEffect(() => {
         const saved = localStorage.getItem("search-engine") as SearchEngine;
         if (saved && SEARCH_ENGINES[saved]) {
@@ -45,7 +44,6 @@ export function SearchBar() {
         }
     }, []);
 
-    // 保存搜索引擎选择
     const handleEngineChange = (newEngine: SearchEngine) => {
         setEngine(newEngine);
         localStorage.setItem("search-engine", newEngine);
@@ -82,7 +80,6 @@ export function SearchBar() {
     return (
         <form onSubmit={handleSubmit} className="mx-auto w-full max-w-2xl px-8 lg:px-16">
             <div className="relative flex items-center">
-                {/* 搜索引擎选择 */}
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <button
@@ -108,7 +105,6 @@ export function SearchBar() {
                     </DropdownMenuContent>
                 </DropdownMenu>
 
-                {/* 搜索输入框 */}
                 <Input
                     ref={inputRef}
                     value={query}
@@ -117,7 +113,6 @@ export function SearchBar() {
                     className="h-12 rounded-xl border-muted-foreground/20 bg-muted/50 pl-24 pr-16 text-base placeholder:text-muted-foreground/50 focus:border-primary/50 focus:bg-background sm:pl-28"
                 />
 
-                {/* 快捷键提示 */}
                 <kbd className="absolute right-4 rounded bg-muted px-2 py-0.5 text-xs text-muted-foreground">
                     Enter
                 </kbd>

@@ -9,7 +9,7 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
-import { NavCard } from "./nav-card";
+import { NavCard } from "../card/nav-card";
 
 import type { NavCategory, NavItem } from "@/types/navigation";
 import type { LucideIcon } from "lucide-react";
